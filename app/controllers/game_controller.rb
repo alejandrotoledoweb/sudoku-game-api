@@ -15,7 +15,7 @@ class GameController < ApplicationController
       end
     end
   
-    render json: {board: @result}, status: :created
+    render json: {board: @result}, status: :ok
     
   end
   
