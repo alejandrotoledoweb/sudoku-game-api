@@ -24,6 +24,23 @@ class MovesController < ApplicationController
     true
   end
 
+  def check_block(board, row, col, number)
+    lower_row = 3 * (row / 3)
+    lower_col = 3 * (col / 3)
+    upper_row = lower_row + 3
+    upper_col = lower_col + 3
+  
+    for r in lower_row...upper_row
+      for c in lower_col...upper_col
+        if board[r][c] == number
+          return false
+        end
+      end
+    end
+  
+    true
+  end
+
   def parse_board(board_string)
     # @board_string = @game.board
     @result = []
