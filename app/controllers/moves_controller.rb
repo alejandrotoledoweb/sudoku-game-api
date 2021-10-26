@@ -4,6 +4,12 @@ class MovesController < ApplicationController
     @move = Move.new(move_params)
   end
 
+  def check_value(board, row, col, number)
+    check_row(board, row, number) &&
+      check_col(board, col, number) &&
+      check_block(board, row, col, number)
+  end
+
   def check_row(board, row, number)
     for col in 0...board[row].length
       if board[row][col] == number
