@@ -49,14 +49,14 @@ class MovesController < ApplicationController
 
   def parse_board(board_string)
     # @board_string = @game.board
-    @result = []
+    result = []
 
     for i in 0...board_string.length do
       if i % 9 == 0
-        @result.push(board_string[i...i + 9].split("").map(&:to_i))
+        result.push(board_string[i...i + 9].split("").map(&:to_i))
       end
     end
-    @result
+    result
     # render json: {board: @result}, status: :ok
   end
 
@@ -72,6 +72,13 @@ class MovesController < ApplicationController
     end
   
     empty_positions
+  end
+
+  def solve(board_string)
+    board = parse_board(board_string)
+    empty_positions = find_empty_positions(board)
+  
+    solve_puzzle(board, empty_positions)
   end
 
   private
