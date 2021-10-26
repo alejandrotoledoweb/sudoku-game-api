@@ -1,11 +1,12 @@
 class GameController < ApplicationController
 
+  before_action :set_game, only: [:show, :update]
+
   def create
     @game = Game.create!(game_params)
   end
 
   def show
-    @game = Game.find(params[:id])
     @board_string = @game.board
     @result = []
 
@@ -16,12 +17,21 @@ class GameController < ApplicationController
     end
     render json: {board: @result}, status: :ok
   end
+
+  def update
+    @game.update(game_params)
+    head :no_content
+  end
   
 
   private
 
   def game_params
     params.require(:game).permit(:board, :solution)
+  end
+
+  def set_game
+    @game = Game.find(params[:id])
   end
   
   
