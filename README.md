@@ -14,14 +14,16 @@ This challenge is to create an API to create a Sudoku Game.
 
 game_id: integer - Example: `1`
 
+You can choose from 1 - 4. There are 4 boards preloaded in the database seed.
 
-### 1. End Point -  get `/game/:game_id`
+
+### 1. End Point -  get `'/game/:game_id'`
 
 
 ![screenshot](app/assets/get_game.png)
 
 
-### 2. End Point -  post `/moves`
+### 2. End Point -  post `'/moves'`
 
 `move_params : {`
 
