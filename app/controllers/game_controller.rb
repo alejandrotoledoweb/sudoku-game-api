@@ -24,7 +24,6 @@ class GameController < ApplicationController
         @solution.push(@solution_string[i...i + 9].split("").map(&:to_i))
       end
     end
-
     render json: {board: @result, solution: @solution}, status: :ok
   end
 

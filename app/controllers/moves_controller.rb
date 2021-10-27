@@ -11,7 +11,7 @@ class MovesController < ApplicationController
     col = @move.col
     number = @move.number
 
-    if check_value(board, row, col, number)
+    if check_value(board, row, col, number) && (number <= 0 || number <= 9) 
       @move.save
       new_board = update_board(board, id, row, col, number, solution_board)
       string_new = new_board.join('')
