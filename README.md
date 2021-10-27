@@ -1,7 +1,7 @@
 # Saeko Challenge - Ruby on Rails Project 
 
 This project was part of a process at Saeko.
-This challenge is to create an API to create a Sudoku Game.
+This challenge is to create an API to handle a Sudoku Game.
 
 ## Solution 
 
