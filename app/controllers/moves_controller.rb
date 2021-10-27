@@ -4,11 +4,24 @@ class MovesController < ApplicationController
     @move = Move.new(move_params)
     @game = Game.find(params[:@move.game])
     board = parse_board(@game.board)
+    string_board = board.join("")
+    solution_board = @game.solution
     row = @move.row
     col = @move.col
     number = @move.number
-    check_value(board, row, col, number)
+
+    if check_value(board, row, col, number) && check_row(board, row, number) && check_col(board, col, number)
+      @move.save
+      render json: {board: board, message: "not solved"}, status: :ok
+    else
+      render json: {board: board, message: ""}, status: :not_acceptable
+    end
+
+    if check_solution(string_board, solution_board)
+      render json: {board: board, message: "solved"}, status: :ok
+    end
     
+
   end
 
   def check_value(board, row, col, number)
@@ -94,6 +107,16 @@ class MovesController < ApplicationController
     empty_positions
   end
 
+  def check_solution(board, solution)
+    if board == solution
+      return true
+    else
+      return false
+    end
+    
+  end
+  
+
   def solve(board_string)
     board = parse_board(board_string)
     empty_positions = find_empty_positions(board)
@@ -127,6 +150,13 @@ class MovesController < ApplicationController
     end
     
     board
+  end
+
+  def update_board(board, id)
+    @game = Game.find(id)
+    string_board = board.join("")
+    @game.update_attribute(board: string_board)
+    head :no_content
   end
 
   private
