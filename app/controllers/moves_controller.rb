@@ -2,7 +2,11 @@ class MovesController < ApplicationController
 
   def create
     @move = Move.new(move_params)
-    @game = Game.find(params[:@move.game])
+
+    # render json: {move: @move.number}, status: :created
+  # end
+    id = @move.game_id
+    @game = Game.find(@move.game_id)
     board = parse_board(@game.board)
     string_board = board.join("")
     solution_board = @game.solution
@@ -10,11 +14,12 @@ class MovesController < ApplicationController
     col = @move.col
     number = @move.number
 
-    if check_value(board, row, col, number) && check_row(board, row, number) && check_col(board, col, number)
+    if check_value(board, row, col, number)
       @move.save
+      update_board(board, id, row, col, number)
       render json: {board: board, message: "not solved"}, status: :ok
     else
-      render json: {board: board, message: ""}, status: :not_acceptable
+      render json: {board: board, error: "number duplicated"}, status: :not_acceptable
     end
 
     if check_solution(string_board, solution_board)
@@ -152,16 +157,19 @@ class MovesController < ApplicationController
     board
   end
 
-  def update_board(board, id)
+  def update_board(board, id, row, col, number)
     @game = Game.find(id)
-    string_board = board.join("")
-    @game.update_attribute(board: string_board)
-    head :no_content
+    board[row][col] = number
+    board
+    # string_board = board.join("")
+    # @game.update_attribute(board: string_board)
+    # head :no_content
   end
 
   private
+
   def move_params
-    params.require(:move).permit(:game, :row, :col, :number)
+    params.permit(:game_id, :row, :col, :number)
   end
   
   

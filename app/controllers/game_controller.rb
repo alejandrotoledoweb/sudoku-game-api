@@ -19,13 +19,6 @@ class GameController < ApplicationController
     render json: {board: @result}, status: :ok
   end
 
-  def update
-    string = @result.join("")
-    @game.update(game_params)
-    head :no_content
-  end
-  
-
   private
 
   def game_params
