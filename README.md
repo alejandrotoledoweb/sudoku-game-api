@@ -7,7 +7,7 @@ This challenge is to create an API to create a Sudoku Game.
 
 ## Live demo link
 
-[try the live demo link]()
+[try the live demo link](https://sudoku-api-atf.herokuapp.com/)
 
 ### Formats of the entries in the endpoints
 
