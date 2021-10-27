@@ -27,6 +27,12 @@ class GameController < ApplicationController
     render json: {board: @result, solution: @solution}, status: :ok
   end
 
+  def index
+    @games = Game.all
+    render json: {games: @games}, status: :ok
+    
+  end
+
   private
 
   def game_params
