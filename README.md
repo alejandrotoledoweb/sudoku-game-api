@@ -9,6 +9,10 @@ This challenge is to create an API to handle a Sudoku Game.
 
 [try the live demo link](https://sudoku-api-atf.herokuapp.com/)
 
+## Video Description
+
+[try the video link](https://youtu.be/aYJDUpPX-Hc)
+
 ### Formats of the entries in the endpoints
 
 
