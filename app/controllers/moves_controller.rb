@@ -98,17 +98,6 @@ class MovesController < ApplicationController
     result
   end
 
-  def parse_solution(board_string)
-    result = []
-
-    for i in 0...board_string.length do
-      if i % 9 == 0
-        result.push(board_string[i...i + 9].split("").map(&:to_i))
-      end
-    end
-    result
-  end
-
   def find_empty_positions(board)
     empty_positions = []
   
