@@ -8,7 +8,10 @@ class GameController < ApplicationController
 
   def show
     @board_string = @game.board
+    @solution_string = @game.solution
     @result = []
+    @solution = []
+
 
     for i in 0...@board_string.length do
       if i % 9 == 0
@@ -16,7 +19,13 @@ class GameController < ApplicationController
       end
     end
 
-    render json: {board: @result}, status: :ok
+    for i in 0...@solution_string.length do
+      if i % 9 == 0
+        @solution.push(@solution_string[i...i + 9].split("").map(&:to_i))
+      end
+    end
+
+    render json: {board: @result, solution: @solution}, status: :ok
   end
 
   private
