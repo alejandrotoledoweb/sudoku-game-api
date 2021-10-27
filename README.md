@@ -61,7 +61,7 @@ The rules for the game are the following:
 
 - No 3×3 grid contains more than one of the same number from 1 to 9
 
-## Built and tested With
+## Built and tested with
 
 - Ruby 2.7.4
 - Ruby on Rails 6.1.4.1
@@ -71,7 +71,7 @@ The rules for the game are the following:
 - Shoulda Matchers
 
 
-## Setup to use it in local environment
+## Setup to use it in a local environment
 
 Download the repo with this command
 
