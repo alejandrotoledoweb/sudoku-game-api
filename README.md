@@ -1,9 +1,10 @@
-# Saeko Challenge - Ruby on Rails Project 
+# Saeko Challenge - Ruby on Rails Project
 
 This project was part of a process at Saeko.
 This challenge is to create an API to handle a Sudoku Game.
+![](./app/assets/sudo-game.webp)
 
-## Solution 
+## Solution
 
 ## Live demo link
 
@@ -15,35 +16,29 @@ This challenge is to create an API to handle a Sudoku Game.
 
 ### Formats of the entries in the endpoints
 
-
 game_id: integer - Example: `1`
 
 You can choose from 1 - 4. There are 4 boards preloaded in the database seed.
 
-
-### 1. End Point -  get `'/game/:game_id'`
-
+### 1. End Point - get `'/game/:game_id'`
 
 ![screenshot](app/assets/get_game.png)
 
-
-### 2. End Point -  post `'/moves'`
+### 2. End Point - post `'/moves'`
 
 `move_params : {`
 
-  `game_id: integer, from 0-4 (4 existing games)`
+`game_id: integer, from 0-4 (4 existing games)`
 
-  `row: integer, from 0-8`
+`row: integer, from 0-8`
 
-  `col: integer, from 0-8`
+`col: integer, from 0-8`
 
-  `number: integer from 0-9`
+`number: integer from 0-9`
 
 `}`
 
-
 ![screenshot](app/assets/post_move.png)
-
 
 ### Rules
 
@@ -74,7 +69,6 @@ The rules for the game are the following:
 - Capybara
 - Shoulda Matchers
 
-
 ## Setup to use it in a local environment
 
 Download the repo with this command
@@ -84,7 +78,6 @@ Download the repo with this command
 `git checkout feature-game`
 
 `cd sudoku-game-api`
-
 
 Install the Gems and Dependencies
 
@@ -117,8 +110,8 @@ to run the test run this command:
 👤 **Alejandro Toledo**
 
 - GitHub: [@alejandrotoledoweb](https://github.com/alejandrotoledoweb)
-- Twitter: [@alejot](https://twitter.com/alejot) 
-- LinkedIn: [Alejandro Toledo](https://www.linkedin.com/in/alejandro-toledo-3b444b109/) 
+- Twitter: [@alejot](https://twitter.com/alejot)
+- LinkedIn: [Alejandro Toledo](https://www.linkedin.com/in/alejandro-toledo-3b444b109/)
 
 ## 🤝 Contributing
 
@@ -131,7 +124,6 @@ Feel free to check the [issues page](https://github.com/alejandrotoledoweb/sudok
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
 
 - Project inspired and challenged by Saeko.
 
